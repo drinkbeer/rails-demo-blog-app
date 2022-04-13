@@ -1,1 +1,23 @@
 <h1>Hello, Article Index</h1>
+
+<h2>List all Articles</h2>
+<ul>
+  <% @articles.each do |article| %>
+    <a href="/articles/<%= article.id %>">
+        Title: <%= article.title %>
+    </a>
+    <li>Body: <%= article.body %></li>
+
+    <li>
+      <a href="<%= article_path(article) %>">
+        <%= article.title %>
+      </a>
+    </li>
+    <li>
+      <%= link_to article.title, article %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "New Article", new_article_path %>
+
